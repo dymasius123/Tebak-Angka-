@@ -1,0 +1,177 @@
+
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: #000;
+    overflow: hidden;
+  }
+  
+  h1 {
+    color:#49ab81;
+    margin: 50px 40px;
+    animation: colorChange 5s infinite;
+    padding: 10px;
+  }
+  
+  div p{
+    font-size: 12px;
+    font-family:monospace;
+    color:rgb(243, 243, 243);
+  }
+  #game {
+    margin-top: 50px;
+  }
+  
+  input[type="number"] {
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    font-display: yellow;
+    
+  }
+  
+  button {
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin: 10px;
+  }
+  
+  #feedback {
+    color: #ead1dc;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+  }
+  
+  #restartBtn {
+    background-color: #ccc;
+    padding: 10px 20px;
+    margin: 10px;
+  }
+  
+  #lives {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .glowing {
+    position: relative;
+    min-width: 700px;
+    height: 550px;
+    margin: -150px;
+    transform-origin: right;
+    animation: colorChange 5s linear infinite;
+  }
+  
+  .glowing:nth-child(even) {
+    transform-origin: left;
+  }
+  
+  @keyframes colorChange {
+    0% {
+      filter: hue-rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+  .glowing span {
+    position: absolute;
+    top: calc(80px * var(--i));
+    left: calc(80px * var(--i));
+    bottom: calc(80px * var(--i));
+    right: calc(80px * var(--i));
+  }
+  
+  .glowing span::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 15px;
+    height: 15px;
+    background: #f00;
+    border-radius: 50%;
+  }
+  
+  .glowing span:nth-child(3n + 1)::before {
+    background: rgba(134,255,0,1);
+    box-shadow: 0 0 20px rgba(134,255,0,1),
+      0 0 40px rgba(134,255,0,1),
+      0 0 60px rgba(134,255,0,1),
+      0 0 80px rgba(134,255,0,1),
+      0 0 0 8px rgba(134,255,0,.1);
+  }
+  
+  .glowing span:nth-child(3n + 2)::before {
+    background: rgba(255,214,0,1);
+    box-shadow: 0 0 20px rgba(255,214,0,1),
+      0 0 40px rgba(255,214,0,1),
+      0 0 60px rgba(255,214,0,1),
+      0 0 80px rgba(255,214,0,1),
+      0 0 0 8px rgba(255,214,0,.1);
+  }
+  
+  .glowing span:nth-child(3n + 3)::before {
+    background: rgba(0,226,255,1);
+    box-shadow: 0 0 20px rgba(0,226,255,1),
+      0 0 40px rgba(0,226,255,1),
+      0 0 60px rgba(0,226,255,1),
+      0 0 80px rgba(0,226,255,1),
+      0 0 0 8px rgba(0,226,255,.1);
+  }
+  
+  .glowing span:nth-child(3n + 1) {
+    animation: animate 10s alternate infinite;
+  }
+  
+  .glowing span:nth-child(3n + 2) {
+    animation: animate-reverse 3s alternate infinite;
+  }
+  
+  .glowing span:nth-child(3n + 3) {
+    animation: animate 8s alternate infinite; 
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: rotate(180deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes animate-reverse {
+    0% {
+      transform: rotate(360deg);
+    }
+    
+    50% {
+      transform: rotate(180deg);
+    }
+    
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+  
